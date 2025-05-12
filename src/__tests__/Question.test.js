@@ -55,10 +55,10 @@ test("calls onAnswered after 10 seconds", () => {
 });
 
 test("clears the timeout after unmount", () => {
-  jest.spyOn(global, 'clearTimeout');
+  jest.spyOn(global, 'clearInterval');
   const { unmount } = render(
     <Question question={testQuestion} onAnswered={noop} />
   );
   unmount();
-  expect(clearTimeout).toHaveBeenCalled();
+  expect(clearInterval).toHaveBeenCalled();
 });
